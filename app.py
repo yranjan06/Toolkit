@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_login import login_required
 from backend.config import LocalDevelopmentConfig
 from backend.models import db, User, Role
 from flask_security import Security, SQLAlchemyUserDatastore, auth_required
@@ -23,7 +24,7 @@ def create_app():
 
 app = create_app()
 
-import backend.create_initial_data
+import  backend.create_initial_data
 
 import backend.routes
 

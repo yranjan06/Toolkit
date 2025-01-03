@@ -1,3 +1,8 @@
+import Navbar from "./components/Navbar.js";
+import router from "./utils/router.js";
+
+
+
 const app = new Vue({
     el: '#app',
     template:
@@ -7,6 +12,10 @@ const app = new Vue({
 
         </div>`
     ,
+    components: {
+        Navbar
+    },
+    router,
 });    
 
-            
+

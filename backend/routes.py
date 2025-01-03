@@ -4,7 +4,7 @@ from flask_security import auth_required, verify_password, hash_password
 datastore = app.security.datastore
 
 @app.get('/')
-def hello():
+def home():
     return render_template('index.html')
 
 
