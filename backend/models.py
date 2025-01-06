@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from flask_security import UserMixin, RoleMixin
 
@@ -38,3 +39,17 @@ class UserRoles(db.Model):
     
     def __repr__(self):
         return f'<UserRoles {self.user_id} -> {self.role_id}>'
+    
+
+
+class Blog(db.Model):
+    __tablename__ = 'blogs'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(255), nullable=False)
+    caption = db.Column(db.String(255), nullable=False)
+    image_url = db.Column(db.String(255), nullable=False)
+    timestamp = db.Column(db.DateTime, index = True, default = datetime.now())
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    
+    def __repr__(self):
+        return f'<Blog {self.title}>'

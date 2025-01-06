@@ -3,11 +3,19 @@ from flask_login import login_required
 from backend.config import LocalDevelopmentConfig
 from backend.models import db, User, Role
 from flask_security import Security, SQLAlchemyUserDatastore, auth_required
+from backend.resources import api
+
+
 
 def create_app():
     app = Flask(__name__, template_folder='frontend', static_folder='frontend', static_url_path='/static')
 
     app.config.from_object(LocalDevelopmentConfig)
+
+
+    # flask-restful init
+    api.init_app(app)
+
     
     # model init
     db.init_app(app)
@@ -30,5 +38,5 @@ import backend.routes
 
 
 
-if __name__ == '__main__':
+if (__name__ == '__main__'):
     app.run()
